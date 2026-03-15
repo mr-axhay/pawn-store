@@ -1,21 +1,28 @@
-import About from "./components/About";
-import Hero from "./components/Hero";
 import NavBar from "./components/Navbar";
-import Features from "./components/Features";
-import Story from "./components/Story";
-import Contact from "./components/Contact";
+import Home from "./components/Home";
 import Footer from "./components/Footer";
+import { Routes , Route } from 'react-router-dom';
+import Register from './components/Register';
+import Login from './components/Login';
+import Logout from "./components/Logout";
+import ManageUsers from "./components/Manageusers";
+import Categories from "./components/Categories";
+
 
 function App() {
   return (
     <main className="relative min-h-screen w-screen overflow-x-hidden">
       <NavBar />
-      <Hero />
-      <About />
-      <Features />
-      <Story />
-      <Contact />
-      <Footer />
+      <Routes>
+        <Route path='/' element={<Home />} ></Route>
+        <Route path='/register' element={<Register />} ></Route>
+        <Route path='/login' element={<Login />} ></Route>
+        <Route path='/logout' element={<Logout />} ></Route>
+        <Route path='/manageUsers' element={<ManageUsers />} ></Route>
+        <Route path='/categories' element={<Categories />} ></Route>
+        
+      </Routes>
+      {/* <Footer /> */}
     </main>
   );
 }

@@ -4,8 +4,9 @@ import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
 import { TiLocationArrow } from "react-icons/ti";
 import Button from "./Button";
+import { NavLink, useNavigate } from 'react-router-dom';
 
-const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
+const navItems = [ "Services", "Products", "About", "Contact"];
 
 const NavBar = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -15,10 +16,17 @@ const NavBar = () => {
   const { y: currentScrollY } = useWindowScroll();
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-
+  const navigate = useNavigate();
   const toggleAudioIndicator = () => {
     setIsAudioPlaying((prev) => !prev);
     setIsIndicatorActive((prev) => !prev);
+  };
+  const goToLogin = () => {
+    navigate("/login");
+  };
+
+  const goToRegister = () => {
+    navigate('/register');
   };
 
   useEffect(() => {
@@ -64,7 +72,7 @@ const NavBar = () => {
 
             <Button
               id="product-button"
-              title="Products"
+              title="AI-Companion"
               rightIcon={<TiLocationArrow />}
               containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
             />
@@ -81,8 +89,43 @@ const NavBar = () => {
                   {item}
                 </a>
               ))}
-            </div>
+              {/* <Button
+                id="product-button"
+                title="Login"
+                rightIcon={<TiLocationArrow />}
+                onClick={goToLogin}
+                containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
+              /> */}
+              {!(localStorage.getItem("token")) ? (
+                <>
+                  <NavLink to="/login" className="nav-hover-btn">Login</NavLink>
+                  <NavLink to="/register" className="nav-hover-btn">Register</NavLink>
+                </>
+              ) :
+              <>
+               { (localStorage.getItem("role")=="admin")?
+                (
+                  <>
+                  <NavLink to="/manageUsers" className="nav-hover-btn">Manage users</NavLink>
+                  <NavLink to="/categories" className="nav-hover-btn">Manage Categories</NavLink>
+                  </>
+                ):
+                (
+                  <NavLink to="/addProduct" className="nav-hover-btn">Add Product</NavLink>
+                )
+              }
+                <NavLink to="/logout" className="nav-hover-btn">Logout</NavLink>
+                </>
+                }
 
+            </div>
+            {/* <Button
+              id="product-button"
+              title="Register"
+              rightIcon={<TiLocationArrow />}
+              onClick={goToRegister}
+              containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
+            /> */}
             <button
               onClick={toggleAudioIndicator}
               className="ml-10 flex items-center space-x-0.5"
