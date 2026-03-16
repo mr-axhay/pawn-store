@@ -1,20 +1,7 @@
-// import express from "express";
-// import { createOrder, verifyPayment } from "../controller/payment.controller.js";
-
-// const router = express.Router();
-
-// router.post("/create-order", createOrder);
-// router.post("/verify-payment", verifyPayment);
-
-// export default router;
-
-// server/routes/payment.js
-
 import express from "express";
 import crypto from "crypto";
 const router = express.Router();
 import razorpay from '../config/razorpay.js';
-// const razorpay = require("../utils/razorpay");
 
 router.post("/create-order", async (req, res) => {
   try {
