@@ -10,8 +10,6 @@ import SubCategoryRouter from './routes/subcategory.js';
 import ForgetPassword from './controller/fp.controller.js';
 import aiChatRoute from "./routes/aiChat.js";
 import chatRouter from "./routes/chat.router.js";
-
-
 import paymentRoutes from "./routes/payment.routes.js";
 
 const razorpayInstance = new Razorpay({

@@ -277,4 +277,5 @@ body {
   background: linear-gradient(135deg, #000000, #1f2937);
   padding: 20px;
   min-height: calc(100vh - 80px);
+  color:#fff;
 }
