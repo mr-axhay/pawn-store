@@ -10,6 +10,13 @@ import Categories from "./components/Categories";
 import AdminHomePage from "./components/AdminHomePage";
 import AddCategory from "./components/AddCategory";
 import PaymentButton from "./components/PaymentButton";
+import AddSubCategory from "./components/AddSubCategory";
+import SubCategories from "./components/subCategories";
+import UserHome from "./components/UserHome";
+import AddProduct from "./components/AddProduct";
+import Product from "./components/Product";
+import ViewProduct from "./components/ViewProduct";
+import AIChat from "./components/aiChat";
 
 
 function App() {
@@ -26,8 +33,15 @@ function App() {
         <Route path='/categories' element={<Categories />} ></Route>
         <Route path='/admin' element={<AdminHomePage />} ></Route>
         <Route path='/addCategory' element={<AddCategory />} ></Route>
+        <Route path='/subCategories/:name' element={<SubCategories />} ></Route>
+        <Route path='/addSubCategory/:name' element={<AddSubCategory />} ></Route>
         <Route path='/pay' element={<PaymentButton />} ></Route>
-        
+        <Route path='/userHome' element={<UserHome />} ></Route>
+        <Route path='/addProduct' element={<AddProduct />} ></Route>
+        <Route path='/product' element={<Product />} ></Route>
+        <Route path='/viewProduct/:name' element={<ViewProduct />} ></Route>
+        <Route path='/chat' element={<AIChat />} ></Route>
+
       </Routes>
       </div>
       {/* <Footer /> */}

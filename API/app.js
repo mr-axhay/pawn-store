@@ -11,7 +11,8 @@ import ForgetPassword from './controller/fp.controller.js';
 import aiChatRoute from "./routes/aiChat.js";
 import chatRouter from "./routes/chat.router.js";
 import paymentRoutes from "./routes/payment.routes.js";
-
+import ProductRouter from './routes/product.router.js';
+import deepChatRouter from "./routes/deepChat.router.js";
 const razorpayInstance = new Razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
     key_secret: process.env.RAZORPAY_KEY_SECRET
@@ -33,10 +34,14 @@ app.use(fileUpload());
 
 //route level middleware
 app.use("/chat", chatRouter);
+//deepseek
+app.use("/api", deepChatRouter);
+
 app.use("/api/ai", aiChatRoute);
 app.use("/user", UserRouter);
 app.use("/category", CategoryRouter);
 app.use("/subcategory", SubCategoryRouter);
+app.use("/product", ProductRouter);
 //route for forgetpassword
 app.post("/forgetpassword", ForgetPassword);
 app.use("/api/payment", paymentRoutes);
