@@ -6,3 +6,6 @@ export const __subcategoryapiurl="http://localhost:3001/subcategory/";
 
 export const __forgetpasswordurl="http://localhost:3001/forgetpassword/";
 
+export const __productapiurl="http://localhost:3001/product/";
+
+

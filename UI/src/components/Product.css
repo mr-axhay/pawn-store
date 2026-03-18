@@ -1,0 +1,78 @@
+
+/* --------------Wrapper */
+.Product-wrapper {
+  width: 100%;
+  padding: 30px;
+}
+
+/* Header */
+.Product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.Product-header h2 {
+  color: #333;
+}
+
+/* Grid Layout */
+.Product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+.Product-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.2s;
+  position: relative;
+  text-align: center;
+}
+
+.Product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Icons */
+.Product-card i {
+  position: absolute;
+  top: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.Product-card .bi-pencil-fill {
+  left: 10px;
+  color: #000;
+}
+
+.Product-card .bi-x-octagon-fill {
+  right: 10px;
+  color: red;
+}
+
+/* Image */
+.Product-avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Title */
+.Product-card h3 {
+  margin: 10px 0;
+  color: #444;
+}
+
+/* Button spacing */
+.Product-card button {
+  margin-top: 10px;
+}
