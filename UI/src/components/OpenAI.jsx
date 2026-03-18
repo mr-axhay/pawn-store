@@ -26,8 +26,7 @@ const OpenAI = () => {
       },
       {
         headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer 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`,
+          'Content-Type': 'application/json'
         },
       }
     );
