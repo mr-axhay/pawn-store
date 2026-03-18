@@ -10,7 +10,6 @@ import Categories from "./components/Categories";
 import AdminHomePage from "./components/AdminHomePage";
 import AddCategory from "./components/AddCategory";
 import PaymentButton from "./components/PaymentButton";
-import OpenAI from "./components/openAI";
 import UserHome from "./components/UserHome";
 import AddProduct from "./components/AddProduct";
 import ViewProduct from "./components/ViewProduct";
@@ -19,6 +18,7 @@ import SubCategories from "./components/SubCategories";
 import AddSubCategory from "./components/AddSubCategory";
 import { useLocation } from "react-router-dom";
 import SubAdminHomePage from "./components/SubAdminHomePage";
+import OpenAI from "./components/openAI";
 
 function App() {
   const location = useLocation();
@@ -47,7 +47,6 @@ function App() {
           <Route path='/viewProduct/:name' element={<ViewProduct />} ></Route>
           <Route path='/chat' element={<OpenAI />} ></Route>
           <Route path='/subadmin' element={<SubAdminHomePage />} ></Route>
-
         </Routes>
       </div>
       <OpenAI />
