@@ -13,11 +13,7 @@ function Product() {
         //navigate to add categ
         navigate('/addProduct');
     }
-    const goToSubProduct = (name) => {
-        //navigate to add categ
-        navigate(`/subProduct/${name}`);
-    }
-    const addSubProduct = (name, event) => {
+    const viewProduct = (name, event) => {
         event.stopPropagation();
         //navigate to add categ
         navigate(`/viewProduct/${name}`);
@@ -61,7 +57,7 @@ function Product() {
                     {Product.length ?
                         (Product.map((cat, index) => (
                             <div className="Product-card" key={cat._id}
-                                onClick={() => goToSubProduct(cat.catnm)}>
+                                onClick={() => viewProduct(cat.catnm)}>
 
                                 {/* <Button title='edit'></Button> */}
                                 <i className="bi bi-pencil-fill"></i>
@@ -75,8 +71,6 @@ function Product() {
                                     />
                                 </div>
                                 <h3>{cat.catnm}</h3>
-                                <Button title='Add Sub-Product'
-                                    onClick={(event) => addSubProduct(cat.catnm, event)}></Button>
                             </div>
                         ))
                         ) :

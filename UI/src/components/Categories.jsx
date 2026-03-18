@@ -13,13 +13,23 @@ function Categories() {
         //navigate to add categ
         navigate('/addCategory');
     }
+
+    const goToSubCategory = (name) => {
+        //navigate to add categ
+        navigate(`/subCategories/${name}`);
+    }
+
+    const goToAddSubCategory = (event, name) => {
+        //navigate to add categ
+        event.stopPropagation();
+        navigate(`/addSubCategory/${name}`);
+    }
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         axios.get(__categoryapiurl + "fetch", /* {
           params: { "role": "user" }
         } */).then((response) => {
-            //console.log(response.data.info);
             setCategories(response.data.info);
         }).catch((error) => {
             console.log(error);
@@ -44,7 +54,8 @@ function Categories() {
                 <div className="category-grid">
 
                     {categories.map((cat, index) => (
-                        <div className="category-card" key={cat._id}>
+                        <div className="category-card" key={cat._id}
+                            onClick={()=>goToSubCategory(cat.catnm)}>
 
                             {/* <Button title='edit'></Button> */}
                             <i className="bi bi-pencil-fill"></i>
@@ -57,7 +68,8 @@ function Categories() {
                                 />
                             </div>
                             <h3>{cat.catnm}</h3>
-                            <Button title='Add Sub-Category'></Button>
+                            <Button title='Add Sub-Category'
+                                onClick={(event) => goToAddSubCategory(event, cat.catnm)}></Button>
                         </div>
                     ))}
 

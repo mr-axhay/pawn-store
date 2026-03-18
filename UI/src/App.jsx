@@ -15,6 +15,8 @@ import UserHome from "./components/UserHome";
 import AddProduct from "./components/AddProduct";
 import ViewProduct from "./components/ViewProduct";
 import Product from "./components/Product";
+import SubCategories from "./components/SubCategories";
+import AddSubCategory from "./components/AddSubCategory";
 
 
 function App() {
@@ -29,8 +31,10 @@ function App() {
           <Route path='/logout' element={<Logout />} ></Route>
           <Route path='/manageUsers' element={<ManageUsers />} ></Route>
           <Route path='/categories' element={<Categories />} ></Route>
+          <Route path='/subCategories/:name' element={<SubCategories />} ></Route>
           <Route path='/admin' element={<AdminHomePage />} ></Route>
           <Route path='/addCategory' element={<AddCategory />} ></Route>
+          <Route path='/addSubCategory/:name' element={<AddSubCategory />} ></Route>
           <Route path='/pay' element={<PaymentButton />} ></Route>
           <Route path='/userHome' element={<UserHome />} ></Route>
           <Route path='/addProduct' element={<AddProduct />} ></Route>

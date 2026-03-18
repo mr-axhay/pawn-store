@@ -120,7 +120,7 @@ const NavBar = () => {
                   </>
                 ):
                 (
-                  <NavLink to="/addProduct" className="nav-hover-btn">Add Product</NavLink>
+                  <NavLink to="/product" className="nav-hover-btn">Product</NavLink>
                 )
               }
                 <NavLink to="/logout" className="nav-hover-btn">Logout</NavLink>

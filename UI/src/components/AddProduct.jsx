@@ -26,7 +26,7 @@ function AddProduct() {
     const formdata = new FormData();
     formdata.append('catnm', catnm);
     formdata.append('caticon', File);
-    axios.post( __productapiurl + "save", formdata, {
+    axios.post(__productapiurl + "save", formdata, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -38,7 +38,7 @@ function AddProduct() {
       navigate('/Product');
     }).catch((error) => {
       //console.log(error);
-      setOutput("Product not added successfully");
+      setOutput("Failed to add product");
     })
   }
 
@@ -48,16 +48,18 @@ function AddProduct() {
 
         <div className="content_box content_box_last">
 
-          <h1>Add Product Here!!!</h1>
+          <h1>Add Product</h1>
           <font color="blue" >{output}</font>
           <form>
             <label>Product Name:</label>
-            <input type="text" onChange={e => setcatnm(e.target.value)} value={catnm} required />
+            <input type="text"
+              placeholder="📦 Enter product name"
+              onChange={e => setcatnm(e.target.value)} value={catnm} required />
             <br /><br />
             <label>Product Icon:</label>
             <input type="file" onChange={handleChange} required />
             <br /><br />
-            <button type="button" onClick={handleSubmit} >Add Product</button>
+            <button className="add" type="button" onClick={handleSubmit} >Add Product</button>
           </form>
           <ToastContainer />
         </div>

@@ -49,8 +49,8 @@ function AddCategory() {
     
 <div className="content_box content_box_last">
 
-<h2>Add Category Here!!!</h2>
-<font color="blue" >{ output }</font>
+<h2>Add Category</h2>
+<div className="output-msg">{output}</div>
   <form>
   <label>Category Name:</label>
   <input type="text" onChange={e=>setcatnm(e.target.value)} value={catnm} required/>
