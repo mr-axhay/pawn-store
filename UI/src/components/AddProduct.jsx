@@ -26,7 +26,7 @@ function AddProduct() {
     const formdata = new FormData();
     formdata.append('catnm', catnm);
     formdata.append('caticon', File);
-    axios.post(__productapiurl + "save", formdata, {
+    axios.post( __productapiurl + "save", formdata, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }

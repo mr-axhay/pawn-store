@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
 import Logout from "./components/Logout";
-import ManageUsers from "./components/Manageusers";
+import ManageUsers from "./components/ManageUsers";
 import Categories from "./components/Categories";
 import AdminHomePage from "./components/AdminHomePage";
 import AddCategory from "./components/AddCategory";
@@ -17,13 +17,18 @@ import ViewProduct from "./components/ViewProduct";
 import Product from "./components/Product";
 import SubCategories from "./components/SubCategories";
 import AddSubCategory from "./components/AddSubCategory";
-
+import { useLocation } from "react-router-dom";
+import SubAdminHomePage from "./components/SubAdminHomePage";
 
 function App() {
+  const location = useLocation();
+
+  const isHomePage = location.pathname === "/";
+
   return (
     <main className="relative min-h-screen w-screen overflow-x-hidden">
       <NavBar />
-      <div className="page-container">
+      <div className={`page-container ${!isHomePage ? "dark-bg" : ""}`}>
         <Routes>
           <Route path='/' element={<Home />} ></Route>
           <Route path='/register' element={<Register />} ></Route>
@@ -41,6 +46,7 @@ function App() {
           <Route path='/product' element={<Product />} ></Route>
           <Route path='/viewProduct/:name' element={<ViewProduct />} ></Route>
           <Route path='/chat' element={<OpenAI />} ></Route>
+          <Route path='/subadmin' element={<SubAdminHomePage />} ></Route>
 
         </Routes>
       </div>

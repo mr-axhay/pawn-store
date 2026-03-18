@@ -5,7 +5,6 @@ import axios from 'axios';
 import { __userapiurl } from '../../src/API_URL';
 import './Register.css';
 import { ToastContainer, toast } from 'react-toastify';
-// import sendMail from "../../../API/utils/sendMail";
 
 const ImageClipBox = ({ src, clipClass }) => (
   <div className={clipClass}>
@@ -23,9 +22,10 @@ const Register = () => {
   const [address, setAddress] = useState();
   const [city, setCity] = useState();
   const [gender, setGender] = useState();
+  const [role, setRole] = useState();
 
   const handleSubmit = () => {
-    const userDetails = { "name": name, "email": email, "password": password, "mobile": mobile, "address": address, "city": city, "gender": gender };
+    const userDetails = { name, "email": email, "password": password, "mobile": mobile, "address": address, "city": city, "gender": gender, role };
     axios.post(__userapiurl + "save", userDetails).then(() => {
       setOutput("User register successfully....");
       setName("");
@@ -34,13 +34,15 @@ const Register = () => {
       setMobile("");
       setAddress("");
       setCity("");
-       toast("User register successfully...");
+      setGender("");
+      setRole("");
+      toast("User register successfully...");
     }).catch(() => {
       setOutput("User registration failed....");
     });
-    
+
   };
-  
+
 
   return (
     <div id="register" className="min-h-96 w-screen">
@@ -68,7 +70,7 @@ const Register = () => {
         </div>
 
         <div className="flex flex-col items-center text-center">
-          
+
           <div className="form-container w-full max-w-lg">
             <form className="form-box bg-black/60 backdrop-blur-md p-8 rounded-xl border border-white/10 shadow-xl space-y-5">
 
@@ -78,7 +80,7 @@ const Register = () => {
                   type="text"
                   value={name || ""}
                   onChange={e => setName(e.target.value)}
-                  className="input-style"
+                  className="input-style mb-0"
                 />
               </div>
 
@@ -108,7 +110,7 @@ const Register = () => {
                   type="text"
                   value={mobile || ""}
                   onChange={e => setMobile(e.target.value)}
-                  className="input-style"
+                  className="input-style mb-0"
                 />
               </div>
 
@@ -162,10 +164,37 @@ const Register = () => {
                 </div>
               </div>
 
+              <div className="flex flex-col text-left">
+                <label className="mb-2 text-sm">Select Role</label>
+                <div className="flex gap-6">
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="role"
+                      value="user"
+                      checked={role === "user"}
+                      onChange={e => setRole(e.target.value)}
+                    />
+                    User
+                  </label>
+
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="role"
+                      value="subadmin"
+                      checked={role === "subadmin"}
+                      onChange={e => setRole(e.target.value)}
+                    />
+                    Member
+                  </label>
+                </div>
+              </div>
+
             </form>
+          <Button onClick={handleSubmit} title="Submit" containerClass="mb-4 cursor-pointer" />
 
           </div>
-          <Button onClick={handleSubmit} title="Submit" containerClass="mt-10 cursor-pointer" />
         </div>
       </div>
       <ToastContainer />

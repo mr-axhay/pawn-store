@@ -12,6 +12,7 @@
 /* Center whole form */
 .form-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -48,9 +49,10 @@
 .form-box textarea {
   padding: 10px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid #ccc !important;
   font-size: 14px;
   transition: 0.3s;
+  background: rgba(0, 0, 0, 0.4) !important;
 }
 
 /* Focus effect */
@@ -85,8 +87,8 @@
   width: 100%;
   padding: 12px;
   border: none;
-  background: #4e73df;
-  color: white;
+  background: #fff;
+  color: #000;
   font-size: 16px;
   border-radius: 6px;
   cursor: pointer;
@@ -95,4 +97,9 @@
 
 .form-box button:hover {
   background: #2e59d9;
+}
+
+.input-style option {
+  background: rgba(0, 0, 0, 0.4) !important;
+  background-color: #000 !important;
 }

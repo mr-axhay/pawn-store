@@ -8,6 +8,7 @@ import UserRouter from './routes/user.router.js';
 import CategoryRouter from './routes/category.router.js';
 import SubCategoryRouter from './routes/subcategory.js';
 import ForgetPassword from './controller/fp.controller.js';
+import ProductRouter from './routes/product.router.js';
 import aiChatRoute from "./routes/aiChat.js";
 import chatRouter from "./routes/chat.router.js";
 import paymentRoutes from "./routes/payment.routes.js";
@@ -40,6 +41,7 @@ app.use("/subcategory", SubCategoryRouter);
 //route for forgetpassword
 app.post("/forgetpassword", ForgetPassword);
 app.use("/api/payment", paymentRoutes);
+app.use("/product", ProductRouter);
 app.listen(3001);
 console.log("Server invoked at link http://localhost:3001");
 

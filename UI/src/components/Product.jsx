@@ -43,7 +43,7 @@ function Product() {
             <div className="Product-wrapper">
 
                 <div className="Product-header">
-                    <h2>Product</h2>
+                    <h1>Products</h1>
 
                     <Button
                         id="Product-button"

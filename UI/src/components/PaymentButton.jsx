@@ -60,7 +60,7 @@ const PaymentButton = () => {
   };
 
   return (
-    <div className="mt-10" style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center" }}>
       <h2 className="mb-4">Pay ₹500</h2>
       <button
         onClick={handlePayment}

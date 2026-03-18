@@ -274,8 +274,11 @@ body {
 
 
 .page-container {
-  background: linear-gradient(135deg, #000000, #1f2937);
-  padding: 20px;
+  padding: 0;
   min-height: calc(100vh - 80px);
   color:#fff;
+}
+
+.dark-bg{
+  background: linear-gradient(135deg, #000000, #1f2937);
 }

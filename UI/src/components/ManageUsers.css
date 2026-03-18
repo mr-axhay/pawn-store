@@ -9,15 +9,17 @@
 }
 
 .user-card {
-  background: white;
-  border-radius: 10px;
+  background: linear-gradient(135deg, #111827, #1f2937);
+  border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
   transition: 0.3s;
 }
 
 .user-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
 }
 
 .user-card-header {

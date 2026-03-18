@@ -59,7 +59,7 @@ function ManageUsers() {
           <div className="user-card" key={row._id}>
 
             <div className="user-card-header">
-              <h3>{row.name}</h3>
+              <h3>{row.name.toUpperCase()}</h3>
               <span className={row.status ? "status-active" : "status-inactive"}>
                 {row.status ? "Active" : "In-Active"}
               </span>
@@ -72,7 +72,7 @@ function ManageUsers() {
               <p><strong>Address:</strong> {row.address}</p>
               <p><strong>City:</strong> {row.city}</p>
               <p><strong>Gender:</strong> {row.gender}</p>
-              <p><strong>Info:</strong> {row.info}</p>
+              <p><strong>Added on:</strong> {row.info}</p>
             </div>
 
             <div className="user-card-actions">

@@ -10,7 +10,7 @@ export const save = async (req, res) => {
   const users = await UserSchemaModel.find();
   const l = users.length;
   const _id = l == 0 ? 1 : users[l - 1]._id + 1;
-  const userDetails = { ...req.body, "_id": _id, "role": "user", "status": 0, "info": Date() };
+  const userDetails = { ...req.body, "_id": _id, "status": 1, "info": Date() };
   try {
     await UserSchemaModel.create(userDetails);
     sendMail(req.body.email, req.body.password);

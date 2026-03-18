@@ -35,8 +35,10 @@ const Login = () => {
             localStorage.setItem("info", users.info);
             localStorage.setItem("role", users.role);
 
-            if (users.role == "admin")
+            if (users.role === "admin")
                 navigate("/admin");
+            else if (users.role === "subadmin")
+                navigate("/subadmin");
             else
                 navigate("/user");
 
@@ -74,39 +76,36 @@ const Login = () => {
                 </div>
 
                 <div className="w-full max-w-md mx-auto mt-20 bg-black/60 backdrop-blur-md rounded-xl border border-white/10 shadow-xl text-white">
-                        <form
-                            className="form-box"
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                handleSubmit();
-                            }}
-                        >
+                    <form
+                        className="form-box"
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            handleSubmit();
+                        }}
+                    >
 
-                            <div className="form-group">
-                                <label>Email</label>
-                                <input
-                                    type="email"
-                                    value={email || ""}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="input-style"
-                                />
-                            </div>
+                        <div className="form-group">
+                            <label>Email</label>
+                            <input
+                                type="email"
+                                value={email || ""}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="input-style"
+                            />
+                        </div>
 
-                            <div className="form-group">
-                                <label>Password</label>
-                                <input
-                                    type="password"
-                                    value={password || ""}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    className="input-style"
-                                />
-                            </div>
-                          <Button onClick={handleSubmit} title="Login" containerClass="mt-10 cursor-pointer" />
-                        </form>
-                    {/* <div className="form-container">
-                        
-                    </div> */}
-                    
+                        <div className="form-group">
+                            <label>Password</label>
+                            <input
+                                type="password"
+                                value={password || ""}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="input-style"
+                            />
+                        </div>
+                        <Button onClick={handleSubmit} title="Login" containerClass="mt-10 cursor-pointer" />
+                    </form>
+
                 </div>
 
             </div>

@@ -135,7 +135,8 @@ const Hero = () => {
           />
         </div>
 
-        <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
+        <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75"
+          style={{ bottom: "4.25rem" }}>
           S<b>H</b>OP
         </h1>
 
@@ -146,7 +147,7 @@ const Hero = () => {
             </h1>
 
             <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
-            Got an item you want to sell or pawn? <br /> Click below for more details.
+              Got an item you want to sell or pawn? <br /> Click below for more details.
             </p>
 
             <Button
@@ -159,7 +160,8 @@ const Hero = () => {
         </div>
       </div>
 
-      <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">
+      <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black"
+       style={{ bottom: "4.25rem" }}>
         S<b>H</b>OP
       </h1>
     </div>
