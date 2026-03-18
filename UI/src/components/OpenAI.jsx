@@ -6,6 +6,7 @@ const OpenAI = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const handleSendMessage = async () => {
     if (!input.trim()) return;
@@ -41,29 +42,40 @@ const OpenAI = () => {
   };
 
   return (
-    <div className="chatbot">
-      <div className="chat-header">🤖 AI Assistant</div>
-
-      <div className="chat-body">
-        {messages.map((msg, i) => (
-          <div key={i} className={`message ${msg.role}`}>
-            <div className="bubble">{msg.text}</div>
+    <div className={`chatbot ${!isOpen ? "collapsed" : ""}`}>
+      <div
+        className="chat-header"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {isOpen ? "🤖 AI Assistant" : "💬"}
+      </div>
+      {isOpen && (
+        <>
+          <div className="chat-body">
+            {messages.map((msg, i) => (
+              <div key={i} className={`message ${msg.role}`}>
+                <div className="bubble">{msg.text}</div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <div className="chat-footer">
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Type a message..."
-        />
-        {isLoading && <div className="spinner-border text-secondary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-        }
-        <button onClick={handleSendMessage}>➤</button>
-      </div>
+          <div className="chat-footer">
+            <input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Ask something..."
+            />
+
+            {isLoading && (
+              <div className="spinner-border text-secondary" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            )}
+
+            <button onClick={handleSendMessage}>Send</button>
+          </div>
+        </>
+      )}
     </div>
   );
 };

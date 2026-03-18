@@ -12,6 +12,36 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   overflow: hidden;
   font-family: 'Segoe UI', sans-serif;
+  transition: all 0.1s ease; 
+}
+
+/* Collapsed mode */
+.chatbot.collapsed {
+  width: 60px;   /* 👈 small icon size */
+  height: 60px;
+  border-radius: 50%; /* 👈 make it circular */
+  overflow: hidden;
+}
+
+/* Header styling */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* When expanded → normal header */
+.chatbot:not(.collapsed) .chat-header {
+  justify-content: center;
+  font-size: 16px;
+}
+
+/* When collapsed → center icon */
+.chatbot.collapsed .chat-header {
+  font-size: 24px;
 }
 
 /* Header */
