@@ -76,6 +76,7 @@ const NavBar = () => {
               id="product-button"
               title="AI-Companion"
               rightIcon={<TiLocationArrow />}
+              onClick={(()=>navigate('/chat'))}
               containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
             />
              <Button
